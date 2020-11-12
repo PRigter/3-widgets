@@ -1,8 +1,8 @@
-const dotenv = require("dotenv").config({ path: "./config/.env" })
+require("dotenv").config({ path: "./config/.env" })
 
-// const PORT = process.env.PORT
+const PORT = process.env.PORT
 
-// console.log(PORT)
+console.log(PORT)
 
 
 // Add HTML Geolocation 
