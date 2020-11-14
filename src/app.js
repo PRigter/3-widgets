@@ -7,9 +7,10 @@ console.log(PORT)
 
 // Add HTML Geolocation 
 
-// window.addEventListener("load", function() {
-//     getLocation()
-// })
+window.addEventListener("load", function() {
+    getLocation()
+})
+
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -21,16 +22,18 @@ function getLocation() {
 }
 
 
-let latitute = ""
-let longitude = ""
 
-const coords = function showPosition(position) {
+const showPosition = function(position) {
     console.log(position);
-    return position.coords.latitute, position.coords.longitude
-    // let latitude = 38.701946307692296
-    // let longitude = -9.29318969230769
+    let latitute = position.coords.latitude
+    let longitude = position.coords.longitude
+
+    console.log(latitute, longitude)
+
 
   }
 
 
-//   api.openweathermap.org/data/2.5/weather?lat=38.701946307692296&lon=-9.29318969230769&appid=openweathermapKEY&lang=pt
+  const getWeather = async function() {
+    axios.get("api.openweathermap.org/data/2.5/weather?lat=38.701946307692296&lon=-9.29318969230769&appid=openweathermapKEY&lang=pt")
+  }
