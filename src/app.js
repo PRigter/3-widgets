@@ -1,4 +1,5 @@
-require("dotenv").config({ path: "./config/.env" })
+require("dotenv").config()
+const axios =  require("axios")
 
 const PORT = process.env.PORT
 const OPEN_WEATHER_KEY = process.env.OPEN_WEATHER_KEY
@@ -31,19 +32,22 @@ const showPosition = function(position) {
     console.log(latitute, longitude)
 
 
-    // getWeather(latitute, longitude)
+    getWeather(latitute, longitude)
 }
 
 
 
-// const getWeather = async function(latitute, longitude) {
+const getWeather = async function(latitute, longitude) {
 
-  // try {
-  //   const res = await axios.get("api.openweathermap.org/data/2.5/weather?lat=latitute&lon=latitute&appid=OPEN_WEATHER_KEY&lang=pt")  
-  //   console.log(res)
+  try {
+    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${OPEN_WEATHER_KEY}&lang=pt` 
 
-  // } catch (error) {
-  //   console.log(("ERROR:", error));
-  // }
+    const res = await axios.get(weatherURL)  
+    console.log(res)
+    // console.log(res.data)
+
+  } catch (error) {
+    console.log(("ERROR:", error));
+  }
   
-// }
+}
