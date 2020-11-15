@@ -3,6 +3,7 @@ node_modules/
 dev.env/
 config/
 dist/
+sample/
 .vscode
 .env
 .cache

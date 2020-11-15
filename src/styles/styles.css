@@ -1,0 +1,11 @@
+body {
+    background-color: lightcyan;
+}
+
+.card {
+    width: 180px;
+    height: 260px;
+    background-color: lightblue;
+    border: 2px solid darkblue;
+    border-radius: 6%;
+}
