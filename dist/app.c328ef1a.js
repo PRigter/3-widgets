@@ -656,9 +656,9 @@ type DotenvConfigOutput = {
 }
 
 */
-var fs = require('fs');
+const fs = require('fs');
 
-var path = require('path');
+const path = require('path');
 
 function log(message
 /*: string */
@@ -666,10 +666,10 @@ function log(message
   console.log("[dotenv][DEBUG] ".concat(message));
 }
 
-var NEWLINE = '\n';
-var RE_INI_KEY_VAL = /^\s*([\w.-]+)\s*=\s*(.*)?\s*$/;
-var RE_NEWLINES = /\\n/g;
-var NEWLINES_MATCH = /\n|\r|\r\n/; // Parses src into an Object
+const NEWLINE = '\n';
+const RE_INI_KEY_VAL = /^\s*([\w.-]+)\s*=\s*(.*)?\s*$/;
+const RE_NEWLINES = /\\n/g;
+const NEWLINES_MATCH = /\n|\r|\r\n/; // Parses src into an Object
 
 function parse(src
 /*: string | Buffer */
@@ -678,20 +678,20 @@ function parse(src
 )
 /*: DotenvParseOutput */
 {
-  var debug = Boolean(options && options.debug);
-  var obj = {}; // convert Buffers before splitting into lines and processing
+  const debug = Boolean(options && options.debug);
+  const obj = {}; // convert Buffers before splitting into lines and processing
 
   src.toString().split(NEWLINES_MATCH).forEach(function (line, idx) {
     // matching "KEY' and 'VAL' in 'KEY=VAL'
-    var keyValueArr = line.match(RE_INI_KEY_VAL); // matched?
+    const keyValueArr = line.match(RE_INI_KEY_VAL); // matched?
 
     if (keyValueArr != null) {
-      var key = keyValueArr[1]; // default undefined or missing values to empty string
+      const key = keyValueArr[1]; // default undefined or missing values to empty string
 
-      var val = keyValueArr[2] || '';
-      var end = val.length - 1;
-      var isDoubleQuoted = val[0] === '"' && val[end] === '"';
-      var isSingleQuoted = val[0] === "'" && val[end] === "'"; // if single or double quoted, remove quotes
+      let val = keyValueArr[2] || '';
+      const end = val.length - 1;
+      const isDoubleQuoted = val[0] === '"' && val[end] === '"';
+      const isSingleQuoted = val[0] === "'" && val[end] === "'"; // if single or double quoted, remove quotes
 
       if (isSingleQuoted || isDoubleQuoted) {
         val = val.substring(1, end); // if double quoted, expand newlines
@@ -718,11 +718,11 @@ function config(options
 )
 /*: DotenvConfigOutput */
 {
-  var dotenvPath = path.resolve(process.cwd(), '.env');
-  var encoding
+  let dotenvPath = path.resolve(process.cwd(), '.env');
+  let encoding
   /*: string */
   = 'utf8';
-  var debug = false;
+  let debug = false;
 
   if (options) {
     if (options.path != null) {
@@ -740,10 +740,10 @@ function config(options
 
   try {
     // specifying an encoding returns a string instead of a buffer
-    var parsed = parse(fs.readFileSync(dotenvPath, {
-      encoding: encoding
+    const parsed = parse(fs.readFileSync(dotenvPath, {
+      encoding
     }), {
-      debug: debug
+      debug
     });
     Object.keys(parsed).forEach(function (key) {
       if (!Object.prototype.hasOwnProperty.call(process.env, key)) {
@@ -753,7 +753,7 @@ function config(options
       }
     });
     return {
-      parsed: parsed
+      parsed
     };
   } catch (e) {
     return {
@@ -765,15 +765,12 @@ function config(options
 module.exports.config = config;
 module.exports.parse = parse;
 },{"fs":"../node_modules/parcel-bundler/src/builtins/_empty.js","path":"../node_modules/path-browserify/index.js","process":"../node_modules/process/browser.js"}],"app.js":[function(require,module,exports) {
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 require("dotenv").config({
   path: "./config/.env"
 });
 
-var PORT = undefined;
+const PORT = undefined;
+const OPEN_WEATHER_KEY = undefined;
 console.log(PORT); // Add HTML Geolocation 
 
 window.addEventListener("load", function () {
@@ -788,33 +785,34 @@ function getLocation() {
   }
 }
 
-var showPosition = function showPosition(position) {
+async function f3() {
+  console.log("from f3");
+}
+
+const showPosition = function showPosition(position) {
   console.log(position);
-  var latitute = position.coords.latitude;
-  var longitude = position.coords.longitude;
-  console.log(latitute, longitude);
+  let latitute = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  console.log(latitute, longitude); // fetchWeater()
+
+  f2();
+  f3(); // getWeather(latitute, longitude)
 };
 
-var getWeather = /*#__PURE__*/function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            axios.get("api.openweathermap.org/data/2.5/weather?lat=38.701946307692296&lon=-9.29318969230769&appid=openweathermapKEY&lang=pt");
+const fetchW = async function fetchW() {
+  console.log("Getting weather");
+};
 
-          case 1:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-
-  return function getWeather() {
-    return _ref.apply(this, arguments);
-  };
-}();
+function f2() {
+  console.log("From F2");
+} // const getWeather = async function(latitute, longitude) {
+// try {
+//   const res = await axios.get("api.openweathermap.org/data/2.5/weather?lat=latitute&lon=latitute&appid=OPEN_WEATHER_KEY&lang=pt")  
+//   console.log(res)
+// } catch (error) {
+//   console.log(("ERROR:", error));
+// }
+// }
 },{"dotenv":"../node_modules/dotenv/lib/main.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -843,7 +841,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58106" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63297" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
