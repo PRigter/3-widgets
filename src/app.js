@@ -55,9 +55,9 @@ const getWeather = async function(latitute, longitude) {
     // console.log(res.data)
 
     tempDisplay.innerText = res.data.main.temp + " ºC"
-    tempDescDisplay.innerHTML = res.data.weather[0].description 
-    tempCityDisplay.innerHTML = res.data.name
-    tempImageDisplay.src = "assets/cloud.png"
+    tempDescDisplay.innerText = res.data.weather[0].description 
+    tempCityDisplay.innerText = res.data.name
+    tempImageDisplay.src = "./assets/cloud.png"
 
   } catch (error) {
     console.log(("ERROR:", error));
@@ -72,7 +72,7 @@ const fetchBitcoinPrice = async function() {
   try {
     const res = await axios.get("https://api.cryptonator.com/api/ticker/btc-usd")
 
-    coinPrice.innerHTML = res.data.ticker.price
+    coinPrice.innerText = res.data.ticker.price
     
 
 

@@ -14,7 +14,8 @@
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.5.0"
   },
   "browserslist": [
     "since 2017-06"
