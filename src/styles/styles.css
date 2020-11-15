@@ -2,6 +2,10 @@ body {
     background-color: lightcyan;
 }
 
+#main {
+    display: inline-block;
+}
+
 .card {
     width: 180px;
     height: 260px;
@@ -9,3 +13,4 @@ body {
     border: 2px solid darkblue;
     border-radius: 6%;
 }
+

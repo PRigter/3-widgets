@@ -5,20 +5,22 @@ const PORT = process.env.PORT
 const OPEN_WEATHER_KEY = process.env.OPEN_WEATHER_KEY
 console.log(PORT)
 
-
+// GLOBAL VARIABLES
 const tempDisplay = document.querySelector(".weather-temp")
 const tempDescDisplay = document.querySelector(".weather-description")
 const tempCityDisplay = document.querySelector(".weather-city")
 const tempImageDisplay = document.querySelector(".weather-img")
+const coinPrice = document.querySelector(".coin-price")
+const coinPriceChange = document.querySelector(".coin-price-change")
 
-// Add HTML Geolocation 
-
+// On Load Functions
 window.addEventListener("load", function() {
     getLocation()
+    fetchBitcoinPrice()
     
 })
 
-
+// HTML Geolocation
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -61,4 +63,21 @@ const getWeather = async function(latitute, longitude) {
     console.log(("ERROR:", error));
   }
   
+}
+
+
+
+// Get Bitcoin Price
+const fetchBitcoinPrice = async function() {
+  try {
+    const res = await axios.get("https://api.cryptonator.com/api/ticker/btc-usd")
+
+    coinPrice.innerHTML = res.data.ticker.price
+    
+
+
+  } catch (error) {
+    console.log("ERROR:" , error);
+  }
+
 }
