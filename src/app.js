@@ -1,5 +1,5 @@
 require("dotenv").config()
-const axios =  require("axios")
+const axios = require("axios")
 
 const PORT = process.env.PORT
 const OPEN_WEATHER_KEY = process.env.OPEN_WEATHER_KEY
@@ -48,7 +48,8 @@ const showPosition = function(position) {
 const getWeather = async function(latitute, longitude) {
 
   try {
-    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${OPEN_WEATHER_KEY}&units=metric&lang=pt` 
+    
+    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${OPEN_WEATHER_KEY}&units=metric&lang=pt`  
 
     const res = await axios.get(weatherURL)  
     console.log(res)
