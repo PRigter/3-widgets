@@ -4,6 +4,7 @@ const axios =  require("axios")
 const PORT = process.env.PORT
 const OPEN_WEATHER_KEY = process.env.OPEN_WEATHER_KEY
 console.log(PORT)
+console.log("Teste")
 
 // GLOBAL VARIABLES
 const tempDisplay = document.querySelector(".weather-temp")
