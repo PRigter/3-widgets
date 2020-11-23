@@ -16,7 +16,8 @@ const coinPriceChange = document.querySelector(".coin-price-change")
 // On Load Functions
 window.addEventListener("load", function() {
     getLocation()
-    fetchBitcoinPrice()
+    // fetchBitcoinPrice()
+    // fetchInspirationQuote()
     
 })
 

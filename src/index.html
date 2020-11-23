@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styles.css">
     <title>3-Widgets</title>
 </head>
@@ -25,7 +26,69 @@
             </div>
         </section>
     </div>
-    
+
+    <div class="ui container" id="main-container">     
+        <section class="ui centered grid" id="main-content">
+
+            <div class="doubling stackable three column row wide">
+            
+                <div class="column main-card offset" id="weather-card">
+                    <div class="ui segment card thumbnail">
+                        <div class="item-img">
+                            <img class="ui circular centered image thumbnail-image" src="cloud_128.png" alt="">
+                        </div>
+                        <div class="item-content center aligned">
+                            <h1 class="weather-temp">21ºC</h1>
+                            <p class="weather-description">Nuvens Dispersas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column main-card offset" id="bitcoin-card">
+                    <div class="ui segment card thumbnail">
+                        <div class="item-img">
+                            <img class="ui circular centered image thumbnail-image" src="../static/assets/bitcoin.png" alt="">
+                        </div>
+                        <div class="item-content center aligned">
+                            <h1 class="coin-price"></h1>
+                            <p class="coin-price-change"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column main-card offset" id="quote-card">
+                    <div class="ui segment card thumbnail">
+                        <div class="item-img">
+                            <img class="ui circular centered image thumbnail-image" src="../static/assets/bitcoin.png" alt="">
+                        </div>
+                        <div class="item-content center aligned">
+                            <h1 class="coin-price"></h1>
+                            <p class="coin-price-change"></p>
+                        </div> 
+                       
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="doubling stackable column row wide">
+                <button class="ui icon medium button" id="spread-btn">
+                    <i class="expand icon"></i>
+                </button>
+            </div>
+
+
+        </section>
+    </div> 
+
+
+
+
+
+
+
+
+    <!-- a ser removido!! -->
     <section id=main>
         <div class="card" id="weather-card">
             <h2 class="weather-city"></h2>
@@ -47,7 +110,8 @@
 
     
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
     <script src="app.js"></script>
 
 </body>
