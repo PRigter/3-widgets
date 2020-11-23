@@ -82,3 +82,18 @@ const fetchBitcoinPrice = async function() {
   }
 
 }
+
+
+
+// Fetch Inspiration Quote
+const fetchInspirationQuote = async function() { 
+  try {
+    const res = await axios.get("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")
+  
+    quoteDisplay.innerText = res.data.quoteText
+    quoteAuthorDisplay.innerText = res.data.quoteAuthor
+
+  } catch (error) {
+    console.log(error);
+  }
+}
