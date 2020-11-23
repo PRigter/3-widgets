@@ -1,16 +1,98 @@
 body {
-    background-color: lightcyan;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
-#main {
-    display: inline-block;
+
+#main-container{
+    /* z-index: -1; */
+    display: none;
 }
 
-.card {
-    width: 180px;
-    height: 260px;
+.ui.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.column.main-card {
+    max-width: 260px;
+    transition: transform 1.8s;
+    /* transition-delay: 0.4s; */
+}
+
+#weather-card {
+    z-index: 0;
+}
+#bitcoin-card {
+    z-index: -1;
+}
+#quote-card {
+    z-index: -2;
+}
+
+.ui.image.thumbnail-image {
     background-color: lightblue;
-    border: 2px solid darkblue;
-    border-radius: 6%;
 }
 
+.item-img {
+    margin-top: 10px;
+}
+
+.item-content {
+    margin-top: 20px;
+}
+
+.ui.segment.card.thumbnail {
+    height: 320px;
+    background: lightgreen;
+    /* position: absolute; */
+    /* transition: translate; */
+
+    /* transition-duration: 2s; */
+    transition-delay: 0.2s;
+}
+
+
+
+.offset {
+    transform: translate(-1200px);
+}
+
+.move {
+    transform: translate(260px);
+}
+
+.move-sec {
+    transform: translate(0px)
+}
+
+.move-third {
+    transform: translate(-260px)
+}
+
+
+#starter-card {
+    transition: transform 1.4s;
+}
+
+.move-starter {
+    transform: translate(1400px)
+}
+
+
+#spread-btn {
+    opacity: 0;
+    transition: opacity 2s ease-in;
+}
+
+
+.move-sec-button {
+    transform: translate(12px);
+    z-index: -1
+}
+
+.move-third-button {
+    transform: translate(-236px);
+    z-index: -2
+}
