@@ -5,7 +5,18 @@ const PORT = process.env.PORT
 const OPEN_WEATHER_KEY = process.env.OPEN_WEATHER_KEY
 console.log(PORT)
 
+// Audio Setup
+const slideSound = new Audio("./sounds/cartoon_pop.mp3")
+const spreadSound = new Audio("./sounds/cam_flash_popup.mp3")
+
 // GLOBAL VARIABLES
+const starterContainer = document.querySelector("#starter-container")
+const mainContainer = document.querySelector("#main-container")
+const weatherCard = document.querySelector("#weather-card")
+const bitcoinCard = document.querySelector("#bitcoin-card")
+const quoteCard = document.querySelector("#quote-card")
+const button = document.querySelector("#spread-btn")
+
 const tempDisplay = document.querySelector(".weather-temp")
 const tempDescDisplay = document.querySelector(".weather-description")
 const tempCityDisplay = document.querySelector(".weather-city")
@@ -16,19 +27,79 @@ const coinPriceChange = document.querySelector(".coin-price-change")
 // On Load Functions
 window.addEventListener("load", function() {
     getLocation()
-    fetchBitcoinPrice()
-    
+    fetchBitcoinPrice()  
 })
 
 // HTML Geolocation
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
+    navigator.geolocation.getCurrentPosition(showPosition)
+
+    const starterCard = document.querySelector("#starter-card")
+    const mainCard = document.querySelectorAll(".main-card")
+
+    starterCard.classList.add("move-starter")
+    setTimeout(function() {
+        starterContainer.style.display = "none"
+    }, 800)
+
+    setTimeout(function() {
+        mainContainer.style.display = "flex"
+    }, 810)
+
+
+    setTimeout(function() {
+        weatherCard.classList.remove("offset")
+        weatherCard.classList.add("move")
+        
+
+        bitcoinCard.classList.remove("offset")
+        bitcoinCard.classList.add("move-sec")
+        
+
+        quoteCard.classList.remove("offset")
+        quoteCard.classList.add("move-third")
+
+        secMove(mainCard, 2100)
+    }, 850)
+
+    setTimeout(function() {
+        button.style.opacity = "1"
+    }, 4300)
+
+    setTimeout(function() {
+        playSlideSound()
+    }, 980)
+
     
   } else {
     console.log("Geolocation is not supported by this browser.")
   }
 }
+
+
+const secMove = function(element, time) {
+  for (let el of element) {
+      setTimeout(function() {
+          el.classList.remove("move")
+          el.classList.remove("move-sec")    
+          el.classList.remove("move-third")   
+      }, time)
+  }
+
+}
+
+const playSlideSound = async function() {
+  await slideSound.play()
+  setTimeout(function() {
+      slideSound.play()
+  }, 430)
+  setTimeout(function() {
+      slideSound.play()
+  }, 860)
+
+}
+
 
 
 
@@ -82,3 +153,12 @@ const fetchBitcoinPrice = async function() {
   }
 
 }
+
+
+// EVENT LISTENER
+button.addEventListener("click", function() {
+  spreadSound.play()
+  weatherCard.classList.toggle("move")
+  bitcoinCard.classList.toggle("move-sec-button")
+  quoteCard.classList.toggle("move-third-button")
+})
