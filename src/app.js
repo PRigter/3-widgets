@@ -26,8 +26,8 @@ const coinPriceChange = document.querySelector(".coin-price-change")
 
 // On Load Functions
 window.addEventListener("load", function() {
-    getLocation()
-    fetchBitcoinPrice()  
+    // getLocation()
+    // fetchBitcoinPrice()  
 })
 
 // HTML Geolocation
@@ -35,41 +35,7 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition)
 
-    const starterCard = document.querySelector("#starter-card")
-    const mainCard = document.querySelectorAll(".main-card")
 
-    starterCard.classList.add("move-starter")
-    setTimeout(function() {
-        starterContainer.style.display = "none"
-    }, 800)
-
-    setTimeout(function() {
-        mainContainer.style.display = "flex"
-    }, 810)
-
-
-    setTimeout(function() {
-        weatherCard.classList.remove("offset")
-        weatherCard.classList.add("move")
-        
-
-        bitcoinCard.classList.remove("offset")
-        bitcoinCard.classList.add("move-sec")
-        
-
-        quoteCard.classList.remove("offset")
-        quoteCard.classList.add("move-third")
-
-        secMove(mainCard, 2100)
-    }, 850)
-
-    setTimeout(function() {
-        button.style.opacity = "1"
-    }, 4300)
-
-    setTimeout(function() {
-        playSlideSound()
-    }, 980)
 
     
   } else {
@@ -108,12 +74,16 @@ const showPosition = function(position) {
     let latitute = position.coords.latitude
     let longitude = position.coords.longitude
 
+    if (position) console.log("we got position");
+
+    // ANIMATION
+  
+
     console.log(latitute, longitude)
 
 
     getWeather(latitute, longitude)
 }
-
 
 
 const getWeather = async function(latitute, longitude) {
@@ -152,6 +122,47 @@ const fetchBitcoinPrice = async function() {
     console.log("ERROR:" , error);
   }
 
+}
+
+
+
+function cardsAnimation() {
+
+  const starterCard = document.querySelector("#starter-card")
+  const mainCard = document.querySelectorAll(".main-card")
+
+  starterCard.classList.add("move-starter")
+  setTimeout(function() {
+      starterContainer.style.display = "none"
+  }, 800)
+
+  setTimeout(function() {
+      mainContainer.style.display = "flex"
+  }, 810)
+
+
+  setTimeout(function() {
+      weatherCard.classList.remove("offset")
+      weatherCard.classList.add("move")
+      
+
+      bitcoinCard.classList.remove("offset")
+      bitcoinCard.classList.add("move-sec")
+      
+
+      quoteCard.classList.remove("offset")
+      quoteCard.classList.add("move-third")
+
+      secMove(mainCard, 2100)
+  }, 850)
+
+  setTimeout(function() {
+      button.style.opacity = "1"
+  }, 4300)
+
+  setTimeout(function() {
+      playSlideSound()
+  }, 980)
 }
 
 
