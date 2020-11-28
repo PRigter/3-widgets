@@ -6,9 +6,9 @@ body {
     background-position: center;
 }
 
-/* Imagem credists
+/* Imagem + Sound credits
     Scott Webb Photography, London, Canada
-
+    Sound from Zapsplat.com
 */
 
 #starter-card {
@@ -48,6 +48,10 @@ body {
     /* transition-delay: 0.4s; */
 }
 
+.main-card {
+    opacity: 0.9;
+}
+
 #weather-card {
     z-index: 0;
 }
@@ -56,6 +60,14 @@ body {
 }
 #quote-card {
     z-index: -2;
+}
+
+.weather-description {
+    font-size: 1.2rem;
+}
+
+.weather-city {
+    font-size: 1.8rem;
 }
 
 .ui.image.thumbnail-image {

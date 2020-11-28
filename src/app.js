@@ -9,7 +9,7 @@ console.log(PORT)
   // Must be loaded as a path (either require, import or workers)
   // Easy Solution is adding a require to resolve into a url 
       // And copy the file into "dist"
-let slideSoundURL = ("./sounds/cartoon_pop.mp3")
+let slideSoundURL = ("./sounds/zen_warm.mp3")
 let spreadSoundURL = ("./sounds/cam_flash_popup.mp3")
 let slideSound = new Audio(slideSoundURL)
 let spreadSound = new Audio(spreadSoundURL)
@@ -67,18 +67,6 @@ const secMove = function(element, time) {
 
 }
 
-const playSlideSound = async function() {
-  await slideSound.play()
-  setTimeout(function() {
-      slideSound.play()
-  }, 430)
-  setTimeout(function() {
-    slideSound.play()
-  }, 860)
-
-}
-
-
 
 const showPosition = function(position) {
     console.log(position);
@@ -89,6 +77,10 @@ const showPosition = function(position) {
     starterButton.classList.remove("loading")
     starterIcon.classList.add("play")
     getWeather(latitute, longitude)
+
+    starterButton.addEventListener("click", cardsAnimation)
+
+  
  
 
 }
@@ -174,18 +166,14 @@ function cardsAnimation() {
   }, 4300)
 
   setTimeout(function() {
-      playSlideSound()
-  }, 980)
+      slideSound.play()
+  }, 1000)
 }
 
 
 // EVENT LISTENER
 
-// starterButton.addEventListener("click", function() {
-//   if (showPosition) {
-//     cardsAnimation()
-//   }
-// })
+
 
 button.addEventListener("click", function() {
   // spreadSound.play()
