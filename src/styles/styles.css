@@ -5,6 +5,15 @@ body {
 
 #starter-btn {
     margin-top: 30px;
+    padding: 16px;
+}
+
+#starter-icon {
+    color: whitesmoke;
+}
+
+.starter-text {
+    max-width: 160px;
 }
 
 
@@ -85,6 +94,9 @@ body {
     transform: translate(1400px)
 }
 
+#starter-btn:hover {
+    transform: scale(1.2) 
+}
 
 #spread-btn {
     opacity: 0;

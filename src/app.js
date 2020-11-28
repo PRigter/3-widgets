@@ -16,6 +16,7 @@ let spreadSound = new Audio(spreadSoundURL)
 
 // GLOBAL VARIABLES
 const starterContainer = document.querySelector("#starter-container")
+const starterIcon = document.querySelector("#starter-icon")
 const starterButton = document.querySelector("#starter-btn")
 const mainContainer = document.querySelector("#main-container")
 const weatherCard = document.querySelector("#weather-card")
@@ -32,20 +33,29 @@ const coinPriceChange = document.querySelector(".coin-price-change")
 
 // On Load Functions
 window.addEventListener("load", function() {
-    // getLocation()
+    getLocation()
     // fetchBitcoinPrice()  
 })
 
 // HTML Geolocation
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition)
 
+    navigator.geolocation.getCurrentPosition(showPosition, function (error) {
+      console.log(error)
+      if (error.code === error.PERMISSION_DENIED) {
+        console.log("No tracking !")
 
-
+        // starterButton.removeEventListener("click", function () {
+        //   console.log("1")
+        // })
+        
+      }
+    })
     
   } else {
     console.log("Geolocation is not supported by this browser.")
+
   }
 }
 
@@ -74,22 +84,21 @@ const playSlideSound = async function() {
 
 
 
-
 const showPosition = function(position) {
     console.log(position);
     let latitute = position.coords.latitude
     let longitude = position.coords.longitude
-
-    if (position) console.log("we got position");
-
-    // ANIMATION
-  
-
-    console.log(latitute, longitude)
-
-
+    console.log(latitute);
+    
+    starterButton.classList.remove("loading")
+    starterIcon.classList.add("play")
     getWeather(latitute, longitude)
+ 
+
 }
+
+
+
 
 
 const getWeather = async function(latitute, longitude) {
@@ -105,7 +114,7 @@ const getWeather = async function(latitute, longitude) {
     tempDisplay.innerText = res.data.main.temp + " ºC"
     tempDescDisplay.innerText = res.data.weather[0].description 
     tempCityDisplay.innerText = res.data.name
-    tempImageDisplay.src = "./assets/cloud.png"
+    // tempImageDisplay.src = "./assets/cloud.png" //! to be fixed
 
   } catch (error) {
     console.log(("ERROR:", error));
@@ -133,6 +142,8 @@ const fetchBitcoinPrice = async function() {
 
 
 function cardsAnimation() {
+  if (showPosition) { console.log("we have position for card Animation");}
+
 
   const starterCard = document.querySelector("#starter-card")
   const mainCard = document.querySelectorAll(".main-card")
@@ -174,9 +185,11 @@ function cardsAnimation() {
 
 // EVENT LISTENER
 
-starterButton.addEventListener("click", function() {
-  cardsAnimation()
-})
+// starterButton.addEventListener("click", function() {
+//   if (showPosition) {
+//     cardsAnimation()
+//   }
+// })
 
 button.addEventListener("click", function() {
   // spreadSound.play()
