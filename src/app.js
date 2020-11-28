@@ -44,12 +44,8 @@ function getLocation() {
     navigator.geolocation.getCurrentPosition(showPosition, function (error) {
       console.log(error)
       if (error.code === error.PERMISSION_DENIED) {
-        console.log("No tracking !")
-
-        // starterButton.removeEventListener("click", function () {
-        //   console.log("1")
-        // })
-        
+        console.log("Location not accepted")
+  
       }
     })
     

@@ -1,11 +1,24 @@
 body {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-image: url(https://images.unsplash.com/photo-1483794344563-d27a8d18014e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
+/* Imagem credists
+    Scott Webb Photography, London, Canada
+
+*/
+
+#starter-card {
+    opacity: 0.8;
+}
 
 #starter-btn {
     margin-top: 30px;
     padding: 16px;
+
 }
 
 #starter-icon {
@@ -59,7 +72,7 @@ body {
 
 .ui.segment.card.thumbnail {
     height: 320px;
-    background: lightgreen;
+    /* background: lightgreen; */
     /* position: absolute; */
     /* transition: translate; */
 
