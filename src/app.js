@@ -29,13 +29,15 @@ const tempDescDisplay = document.querySelector(".weather-description")
 const tempCityDisplay = document.querySelector(".weather-city")
 const tempImageDisplay = document.querySelector(".weather-img")
 const coinPrice = document.querySelector(".coin-price")
-const coinPriceChange = document.querySelector(".coin-price-change")
 const priceChangeDisplay = document.querySelector(".price-change")
+const quoteDescDisplay = document.querySelector(".quote-description")
+const quoteAuthorDisplay = document.querySelector(".quote-author")
 
 // On Load Functions
 window.addEventListener("load", function() {
     getLocation()
     fetchBitcoinPrice()  
+    fetchInspirationQuote() 
 })
 
 
@@ -130,6 +132,21 @@ const fetchBitcoinPrice = async function() {
     console.log("ERROR:" , error);
   }
 
+}
+
+
+
+// Fetch Inspiration Quote
+const fetchInspirationQuote = async function() { 
+  try {
+    const res = await axios.get("https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")
+  
+    quoteDescDisplay.innerText = res.data.quoteText
+    quoteAuthorDisplay.innerText = res.data.quoteAuthor
+
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 

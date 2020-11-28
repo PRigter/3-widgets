@@ -108,6 +108,12 @@ body {
     font-size: 0.9rem;
 }
 
+.quote-author {
+    opacity: 0.8;
+    font-style: italic;
+
+}
+
 
 .offset {
     transform: translate(-1200px);
