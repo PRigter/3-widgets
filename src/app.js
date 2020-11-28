@@ -5,12 +5,18 @@ const PORT = process.env.PORT
 const OPEN_WEATHER_KEY = process.env.OPEN_WEATHER_KEY
 console.log(PORT)
 
-// Audio Setup
-const slideSound = new Audio("./sounds/cartoon_pop.mp3")
-const spreadSound = new Audio("./sounds/cam_flash_popup.mp3")
+// Parcel Audio Setup
+  // Must be loaded as a path (either require, import or workers)
+  // Easy Solution is adding a require to resolve into a url 
+      // And copy the file into "dist"
+let slideSoundURL = ("./sounds/cartoon_pop.mp3")
+let spreadSoundURL = ("./sounds/cam_flash_popup.mp3")
+let slideSound = new Audio(slideSoundURL)
+let spreadSound = new Audio(spreadSoundURL)
 
 // GLOBAL VARIABLES
 const starterContainer = document.querySelector("#starter-container")
+const starterButton = document.querySelector("#starter-btn")
 const mainContainer = document.querySelector("#main-container")
 const weatherCard = document.querySelector("#weather-card")
 const bitcoinCard = document.querySelector("#bitcoin-card")
@@ -61,7 +67,7 @@ const playSlideSound = async function() {
       slideSound.play()
   }, 430)
   setTimeout(function() {
-      slideSound.play()
+    slideSound.play()
   }, 860)
 
 }
@@ -167,8 +173,13 @@ function cardsAnimation() {
 
 
 // EVENT LISTENER
+
+starterButton.addEventListener("click", function() {
+  cardsAnimation()
+})
+
 button.addEventListener("click", function() {
-  spreadSound.play()
+  // spreadSound.play()
   weatherCard.classList.toggle("move")
   bitcoinCard.classList.toggle("move-sec-button")
   quoteCard.classList.toggle("move-third-button")
