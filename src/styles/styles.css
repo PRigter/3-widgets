@@ -71,7 +71,8 @@ body {
 }
 
 .ui.image.thumbnail-image {
-    background-color: lightblue;
+    background-color: rgba(216, 233, 238, 0.089);
+    
 }
 
 .item-img {

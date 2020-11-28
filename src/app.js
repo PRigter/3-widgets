@@ -34,7 +34,7 @@ const coinPriceChange = document.querySelector(".coin-price-change")
 // On Load Functions
 window.addEventListener("load", function() {
     getLocation()
-    // fetchBitcoinPrice()  
+    fetchBitcoinPrice()  
 })
 
 // HTML Geolocation
@@ -102,7 +102,7 @@ const getWeather = async function(latitute, longitude) {
     tempDisplay.innerText = res.data.main.temp + " ºC"
     tempDescDisplay.innerText = res.data.weather[0].description 
     tempCityDisplay.innerText = res.data.name
-    // tempImageDisplay.src = "./assets/cloud.png" //! to be fixed
+    tempImageDisplay.src = "./assets/cloud.png"
 
   } catch (error) {
     console.log(("ERROR:", error));
