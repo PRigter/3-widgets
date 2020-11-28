@@ -199,4 +199,5 @@ button.addEventListener("click", function() {
   weatherCard.classList.toggle("move")
   bitcoinCard.classList.toggle("move-sec-button")
   quoteCard.classList.toggle("move-third-button")
+  weatherCard.classList.toggle("fill")
 })

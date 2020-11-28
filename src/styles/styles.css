@@ -108,10 +108,18 @@ body {
     font-size: 0.9rem;
 }
 
+.quote-container {
+    padding: 2px 12px;
+}
+
+.quote-descrition {
+    font-size: 1.2rem;
+}
+
 .quote-author {
     opacity: 0.8;
     font-style: italic;
-
+    margin-top: 16px;
 }
 
 
@@ -159,4 +167,8 @@ body {
 .move-third-button {
     transform: translate(-236px);
     z-index: -2
+}
+
+.fill {
+    opacity: 1;
 }
