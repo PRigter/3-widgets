@@ -10,7 +10,7 @@ console.log(PORT)
   // Easy Solution is adding a require to resolve into a url 
       // And copy the file into "dist"
 let slideSoundURL = ("./sounds/zen_warm.mp3")
-let spreadSoundURL = ("./sounds/cam_flash_popup.mp3")
+let spreadSoundURL = ("./sounds/zen_tone_1.mp3")
 let slideSound = new Audio(slideSoundURL)
 let spreadSound = new Audio(spreadSoundURL)
 
@@ -30,12 +30,15 @@ const tempCityDisplay = document.querySelector(".weather-city")
 const tempImageDisplay = document.querySelector(".weather-img")
 const coinPrice = document.querySelector(".coin-price")
 const coinPriceChange = document.querySelector(".coin-price-change")
+const priceChangeDisplay = document.querySelector(".price-change")
 
 // On Load Functions
 window.addEventListener("load", function() {
     getLocation()
     fetchBitcoinPrice()  
 })
+
+
 
 // HTML Geolocation
 function getLocation() {
@@ -98,8 +101,8 @@ const getWeather = async function(latitute, longitude) {
     const res = await axios.get(weatherURL)  
     console.log(res)
     // console.log(res.data)
-
-    tempDisplay.innerText = res.data.main.temp + " ºC"
+    let temp = res.data.main.temp
+    tempDisplay.innerText = temp.toFixed(1) + " ºC"
     tempDescDisplay.innerText = res.data.weather[0].description 
     tempCityDisplay.innerText = res.data.name
     tempImageDisplay.src = "./assets/cloud.png"
@@ -117,9 +120,11 @@ const fetchBitcoinPrice = async function() {
   try {
     const res = await axios.get("https://api.cryptonator.com/api/ticker/btc-usd")
 
-    coinPrice.innerText = res.data.ticker.price
+    let price = res.data.ticker.price
+    let priceChange = res.data.ticker.change
+    coinPrice.innerText = Math.round(price)
+    priceChangeDisplay.innerText = Math.round(priceChange)
     
-
 
   } catch (error) {
     console.log("ERROR:" , error);
@@ -172,11 +177,8 @@ function cardsAnimation() {
 
 
 // EVENT LISTENER
-
-
-
 button.addEventListener("click", function() {
-  // spreadSound.play()
+  spreadSound.play()
   weatherCard.classList.toggle("move")
   bitcoinCard.classList.toggle("move-sec-button")
   quoteCard.classList.toggle("move-third-button")
