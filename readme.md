@@ -2,9 +2,9 @@
 
 ### About
 A simple 3-Widgets, getting weather information from:
-    * OpenWeatherMap API - https://openweathermap.org/
-    * Cryptonator API - https://www.cryptonator.com/
-    * Forismatic API - https://api.forismatic.com
+* OpenWeatherMap API - https://openweathermap.org/
+* Cryptonator API - https://www.cryptonator.com/
+* Forismatic API - https://api.forismatic.com
 
 
 ### Notes:
