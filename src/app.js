@@ -162,6 +162,8 @@ const secMove = function(element, time) {
 }
 
 
+
+
 // EVENT LISTENER
 button.addEventListener("click", function() {
   spreadSound.play()
