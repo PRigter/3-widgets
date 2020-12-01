@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "dev": "parcel src/index.html",
-    "prod": "parcel build src/index.html --target node --out-dir prod"
+    "prod": "parcel build src/index.html --target node --out-dir prod",
+    "start": "parcel build src/index.html"
   },
   "author": "",
   "license": "ISC",

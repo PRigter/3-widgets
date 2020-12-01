@@ -1,7 +1,7 @@
 require("dotenv").config()
 const axios = require("axios")
 
-const OPEN_WEATHER_KEY = process.env.OPEN_WEATHER_KEY
+// const OPEN_WEATHER_KEY = process.env.OPEN_WEATHER_KEY
 
 //* PARCEL AUDIO SETUP
   // Must be loaded as a path (either require, import or workers)
@@ -73,7 +73,7 @@ const showPosition = function(position) {
 // Get Weather from Open Weather Map API -- IF we have position coords from aboVE
 const getWeather = async function(latitute, longitude) {
   try {
-    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${OPEN_WEATHER_KEY}&units=metric&lang=pt`  
+    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${process.env.OPEN_WEATHER_KEY}&units=metric&lang=pt`  
     const res = await axios.get(weatherURL)  
     let temp = res.data.main.temp
 
