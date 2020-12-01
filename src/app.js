@@ -84,7 +84,6 @@ const getWeather = async function(latitute, longitude) {
   } catch (error) {
     console.log(("ERROR:", error));
   }
-  
 }
 
 
