@@ -1,62 +1,41 @@
 body {
     background-image: url(https://images.unsplash.com/photo-1483794344563-d27a8d18014e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80);
-
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
-
-/* Imagem + Sound credits
-    Scott Webb Photography, London, Canada
-    Sound from Zapsplat.com
-*/
-
 #starter-card {
     opacity: 0.8;
 }
-
 #starter-btn {
     margin-top: 30px;
     padding: 16px;
-
 }
-
 #starter-icon {
     color: whitesmoke;
 }
-
 .starter-text {
     max-width: 160px;
 }
-
-
 #main-container{
-    /* z-index: -1; */
     display: none;
 }
-
 .ui.container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-
 .ui.grid>[class*="three column"].row>.column {
     width: 33.33333333%!important;
 }
-
 .column.main-card {
     max-width: 260px;
     transition: transform 1.8s;
-    /* transition-delay: 0.4s; */
 }
-
 .main-card {
     opacity: 0.9;
 }
-
 #weather-card {
     z-index: 0;
 }
@@ -66,39 +45,26 @@ body {
 #quote-card {
     z-index: -2;
 }
-
 .weather-description {
     font-size: 1.2rem;
 }
-
 .weather-city {
     font-size: 1.8rem;
 }
-
 .ui.image.thumbnail-image {
-    background-color: rgba(216, 233, 238, 0.089);
-    
+    background-color: rgba(216, 233, 238, 0.089);    
 }
-
 .item-img {
     margin-top: 10px;
 }
-
 .item-content {
     margin-top: 20px;
     text-align: center;
 }
-
 .ui.segment.card.thumbnail {
     height: 320px;
-    /* background: lightgreen; */
-    /* position: absolute; */
-    /* transition: translate; */
-
-    /* transition-duration: 2s; */
     transition-delay: 0.2s;
 }
-
 .priceContainer {
     display: flex;
     flex-direction: row;
@@ -113,68 +79,51 @@ body {
 .coin-price-change{
     font-size: 0.9rem;
 }
-
 .quote-container {
     padding: 2px 12px;
 }
-
 .quote-descrition {
     font-size: 1.2rem;
 }
-
 .quote-author {
     opacity: 0.8;
     font-style: italic;
     margin-top: 16px;
 }
-
-
 .offset {
     transform: translate(-1200px);
 }
-
 .move {
     transform: translate(260px);
 }
-
 .move-sec {
     transform: translate(0px)
 }
-
 .move-third {
     transform: translate(-260px)
 }
-
-
 #starter-card {
     transition: transform 1.4s;
 }
-
 .move-starter {
     transform: translate(1400px)
 }
-
 #starter-btn:hover {
     transform: scale(1.2) 
 }
-
 #spread-btn {
     opacity: 0;
     transition: opacity 2s ease-in;
     background: white;
 }
-
-
 .move-sec-button {
     transform: translate(12px);
     z-index: -1
 }
-
 .move-third-button {
     transform: translate(-236px);
     z-index: -2
 }
-
 .fill {
     opacity: 1;
 }
