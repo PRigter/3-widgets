@@ -12,5 +12,5 @@ Using Semantic UI + Parcel Bundler
 
 
 ### Credits:
-Background Image: Scott Webb Photography on Unsplash
-Sounds from Zapsplat.com
+* Background Image: Scott Webb Photography on Unsplash
+* Sounds from Zapsplat.com
