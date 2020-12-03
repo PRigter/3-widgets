@@ -1,7 +1,6 @@
 require("dotenv").config()
 const axios = require("axios")
 
-// const OPEN_WEATHER_KEY = process.env.OPEN_WEATHER_KEY
 
 //* PARCEL AUDIO SETUP
   // Must be loaded as a path (either require, import or workers)
@@ -59,32 +58,41 @@ function getLocation() {
 
 // Recieves data/coords from navigator.geolocation.getCurrentPosition Function
 const showPosition = function(position) {
-    let latitute = position.coords.latitude
+    let latitude = position.coords.latitude
     let longitude = position.coords.longitude
     
     starterButton.classList.remove("loading")
     starterIcon.classList.add("play")
-    getWeather(latitute, longitude)
+    
+    fetchWeather(latitude, longitude)
     starterButton.addEventListener("click", cardsAnimation)
+
 }
 
 
 //* FETCH WEATHER
 // Get Weather from Open Weather Map API -- IF we have position coords from aboVE
-const getWeather = async function(latitute, longitude) {
+// Fetch using NETLIFY Lambda FUNCTIONS --> To Protect Request with API KEY
+const fetchWeather = async function(latitude, longitude) {
   try {
-    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitute}&lon=${longitude}&appid=${process.env.OPEN_WEATHER_KEY}&units=metric&lang=pt`  
-    const res = await axios.get(weatherURL)  
-    let temp = res.data.main.temp
+    // const res = await (await fetch(`http://localhost:9000/getWeather.js?lat=${latitude}&lon=${longitude}`)).json()
+    
+    const res = await (await fetch(`/.netlify/functions/getWeather?lat=${latitude}&lon=${longitude}`)).json()
+    console.log(res)
+    console.log(res.main)
+    let temp = res.main.temp
 
     tempDisplay.innerText = temp.toFixed() + " ºC"
-    tempDescDisplay.innerText = res.data.weather[0].description 
-    tempCityDisplay.innerText = res.data.name
+    tempDescDisplay.innerText = res.weather[0].description 
+    tempCityDisplay.innerText = res.name
     tempImageDisplay.src = "./assets/cloud.png"
+
   } catch (error) {
-    console.log(("ERROR:", error));
+    console.log("Error:", error)
   }
+
 }
+
 
 
 //* FETCH BITCOIN PRICE

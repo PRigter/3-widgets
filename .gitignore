@@ -4,6 +4,11 @@ dev.env/
 config/
 dist/
 prod/
+functions/
+test/
+test2/
+test3/
+test4/
 sample/
 .vscode
 .env
