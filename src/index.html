@@ -8,11 +8,12 @@
     <title>3-Widgets</title>
 </head>
 <body>
+    <!-- STARTER CONTAINER -->
     <div class="ui container" id="starter-container">
         <section class="ui centered grid" id="starter">
             <div class="doubling stackable column row wide">
                 <div class="column starter-card" id="starter-card">
-                    <div class="ui segment card thumbnail">
+                    <div class="ui segment card thumbnail starter-thumbnail" id="starter-thumbnail">
                             <div class="ui active inverted dimmer">
                                 <div class="ui text starter-text">
                                     <h2>After accepting Geolocation <br> press Start</h2>
@@ -26,9 +27,10 @@
             </div>
         </section>
     </div>
+    <!-- CARDS CONTAINER -->
     <div class="ui container" id="main-container">     
         <section class="ui centered grid" id="main-content">
-            <div class="doubling stackable three column row wide">
+            <div class="doubling stackable three column row wide" id="cards-container">
                 <div class="column main-card offset" id="weather-card">
                     <div class="ui segment card thumbnail">
                         <div class="item-img weather-image-container">
@@ -70,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <div class="doubling stackable column row wide">
+            <div class="doubling stackable column row wide" id="button-container">
                 <button class="ui icon medium button" id="spread-btn">
                     <i class="expand icon"></i>
                 </button>

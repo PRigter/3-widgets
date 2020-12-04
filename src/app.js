@@ -78,8 +78,6 @@ const fetchWeather = async function(latitude, longitude) {
     // const res = await (await fetch(`http://localhost:9000/getWeather.js?lat=${latitude}&lon=${longitude}`)).json()
     
     const res = await (await fetch(`/.netlify/functions/getWeather?lat=${latitude}&lon=${longitude}`)).json()
-    console.log(res)
-    console.log(res.main)
     let temp = res.main.temp
 
     tempDisplay.innerText = temp.toFixed() + " ºC"

@@ -29,6 +29,15 @@ body {
 .ui.grid>[class*="three column"].row>.column {
     width: 33.33333333%!important;
 }
+
+.ui.column.grid>[class*="three wide"].column, .ui.grid>.column.row>[class*="three wide"].column, .ui.grid>.row>[class*="three wide"].column, .ui.grid>[class*="three wide"].column {
+    width: inherit !important;
+}
+
+.ui.grid>.column:not(.row), .ui.grid>.row>.column {
+    width: inherit !important;
+}
+
 .column.main-card {
     max-width: 260px;
     transition: transform 1.8s;
@@ -127,3 +136,101 @@ body {
 .fill {
     opacity: 1;
 }
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 993px) {
+    .column.main-card {
+         max-width: 220px;
+ }  
+}
+
+@media (max-width: 769px) {
+    .column.main-card {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 610px) {
+    
+    #main-content, #cards-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #main-container {
+        align-items: baseline;
+    }
+    .ui.segment.card.thumbnail {
+        max-height: 240px;
+    }
+
+    .move {
+        transform: translateY(260px)
+    }
+    .move-sec {
+        transform: translateY(0px)
+    }
+    .move-third {
+        transform: translateY(-260px)
+    }
+
+    .move-sec-button {
+        transform: translateY(12px);
+        z-index: -1
+    }
+    .move-third-button {
+        transform: translateY(-236px);
+        z-index: -2
+    }
+
+}
+
+@media (max-width: 350px) {
+
+    body {
+        background-repeat: repeat;
+    }
+
+    #starter-card {
+        min-width: 280px;
+    }
+
+    #starter-thumbnail {
+        max-height: 280px !important;
+    }
+
+    #main-content {
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 100%;
+    }
+
+    #main-container {
+        margin: 0px !important;
+    }
+
+    #main-content, #cards-container, .column.main-card {
+        max-width: 100%;
+    }
+
+    .ui.card, .ui.cards>.card {
+        width: 100%;
+    }
+
+    #cards-container>.column.main-card {
+        padding-left: 0px !important; 
+        padding-right: 0px !important;
+    }
+
+    #cards-container>div>div {
+        min-height: 340px;
+    }
+
+    #button-container {
+        display: none;
+    }
+
+}
+

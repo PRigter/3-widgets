@@ -4,16 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "parcel src/index.html",
-    "prod": "parcel build src/index.html --out-dir prod",
-    "start": "parcel build src/index.html",
-    "test": "parcel src/index.html --target note --out-dir test",
-    "test2": "parcel src/index.html --target node --out-dir test2",
-    "test3": "parcel src/index.html --out-dir test3",
-    "test4": "set OPEN_WEATHER_KEY=123&&parcel src/index.html --out-dir test4",
+    "dev": "parcel ./src/index.html",
+    "prod": "parcel build ./src/index.html --out-dir prod",
     "lambda-serve": "netlify-lambda serve functions",
-    "lambda-build": "netlify-lambda build functions",
-    "parcel-lambda": "parcel src/index.html netlify-lambda serve functions"
+    "lambda-build": "netlify-lambda build functions"
   },
   "author": "",
   "license": "ISC",
