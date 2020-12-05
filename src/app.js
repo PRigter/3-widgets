@@ -110,13 +110,13 @@ const fetchBitcoinPrice = async function() {
 
 
 //* FETCH INSPIRATION QUOTE
-// Fetch Inspiration Quote from Forismatic API
+// Fetch Inspiration Quote from SergeyWebPro - FCC
 const fetchInspirationQuote = async function() { 
   try {
      const randNumber = Math.floor(Math.random() * 1000)
     console.log(randNumber)
     const res = await axios.get("https://type.fit/api/quotes")
-    // console.log(res.data[56])
+    
     
     quoteDescDisplay.innerText = res.data[randNumber].text
     quoteAuthorDisplay.innerText = res.data[randNumber].author
